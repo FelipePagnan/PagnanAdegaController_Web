@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import {
   Wine, ShoppingCart, Package, BarChart3, ClipboardList,
   DollarSign, Users, Calendar, Truck, Bell, Settings,
-  ChevronLeft, LogOut, Search, Receipt
+  ChevronLeft, LogOut, Search, Receipt, Building2
 } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
 import styles from './Sidebar.module.css';
@@ -15,6 +15,7 @@ const menuItems = [
   { path: '/estoque', label: 'Estoque', icon: Package },
   { path: '/produtos', label: 'Produtos', icon: Wine },
   { path: '/compras', label: 'Compras', icon: ClipboardList },
+  { path: '/fornecedores', label: 'Fornecedores', icon: Building2 },
   { path: '/financeiro', label: 'Financeiro', icon: DollarSign },
   { path: '/clientes', label: 'Clientes', icon: Users },
   { path: '/reservas', label: 'Reservas', icon: Calendar },
@@ -30,12 +31,9 @@ export function Sidebar() {
 
   return (
     <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}>
-      {/* Header */}
       <div className={styles.header}>
         <div className={styles.logo}>
-          <div className={styles.logoIcon}>
-            <Wine size={18} />
-          </div>
+          <div className={styles.logoIcon}><Wine size={18} /></div>
           {!collapsed && (
             <div className={styles.logoText}>
               <span className={styles.logoTitle}>ERP Adega</span>
@@ -48,34 +46,23 @@ export function Sidebar() {
         </button>
       </div>
 
-      {/* Search */}
       {!collapsed && (
-        <div className={styles.search}>
-          <Search size={14} />
-          <span>Buscar...</span>
-        </div>
+        <div className={styles.search}><Search size={14} /><span>Buscar...</span></div>
       )}
 
-      {/* Navigation */}
       <nav className={styles.nav}>
         {menuItems.map((item) => {
           const Icon = item.icon;
           const isActive = location.pathname === item.path;
-
           return (
-            <NavLink
-              key={item.path}
-              to={item.path}
+            <NavLink key={item.path} to={item.path}
               className={`${styles.navItem} ${isActive ? styles.active : ''}`}
-              title={collapsed ? item.label : undefined}
-            >
+              title={collapsed ? item.label : undefined}>
               <Icon size={18} />
               {!collapsed && (
                 <>
                   <span className={styles.navLabel}>{item.label}</span>
-                  {item.badge && (
-                    <span className={styles.badge}>{item.badge}</span>
-                  )}
+                  {item.badge && <span className={styles.badge}>{item.badge}</span>}
                 </>
               )}
             </NavLink>
@@ -83,13 +70,10 @@ export function Sidebar() {
         })}
       </nav>
 
-      {/* Footer */}
       <div className={styles.footer}>
         {!collapsed && usuario && (
           <div className={styles.user}>
-            <div className={styles.avatar}>
-              {usuario.nome.charAt(0).toUpperCase()}
-            </div>
+            <div className={styles.avatar}>{usuario.nome.charAt(0).toUpperCase()}</div>
             <div className={styles.userInfo}>
               <span className={styles.userName}>{usuario.nome}</span>
               <span className={styles.userRole}>{usuario.perfil}</span>
@@ -97,8 +81,7 @@ export function Sidebar() {
           </div>
         )}
         <button className={styles.logoutBtn} onClick={logout} title="Sair">
-          <LogOut size={16} />
-          {!collapsed && <span>Sair</span>}
+          <LogOut size={16} />{!collapsed && <span>Sair</span>}
         </button>
       </div>
     </aside>
