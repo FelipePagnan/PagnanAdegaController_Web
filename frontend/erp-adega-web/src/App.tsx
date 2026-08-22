@@ -8,6 +8,7 @@ import { ProdutosPage } from '@/pages/produtos/ProdutosPage';
 import { ProdutoFormPage } from '@/pages/produtos/ProdutoFormPage';
 import { EstoquePage } from '@/pages/estoque/EstoquePage';
 import { PDVPage } from '@/pages/vendas/PDVPage';
+import { VendasListPage } from '@/pages/vendas/VendasListPage';
 
 function PlaceholderPage({ titulo }: { titulo: string }) {
   return (
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/produtos/:id" element={<ProdutoFormPage />} />
           <Route path="/estoque" element={<EstoquePage />} />
           <Route path="/vendas" element={<PDVPage />} />
+          <Route path="/vendas/lista" element={<VendasListPage />} />
           <Route path="/compras" element={<PlaceholderPage titulo="Compras" />} />
           <Route path="/financeiro" element={<PlaceholderPage titulo="Financeiro" />} />
           <Route path="/clientes" element={<PlaceholderPage titulo="Clientes" />} />

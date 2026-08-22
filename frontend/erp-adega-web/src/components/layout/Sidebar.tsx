@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import {
   Wine, ShoppingCart, Package, BarChart3, ClipboardList,
   DollarSign, Users, Calendar, Truck, Bell, Settings,
-  Building2, Shield, ChevronLeft, LogOut, Search
+  ChevronLeft, LogOut, Search, Receipt
 } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
 import styles from './Sidebar.module.css';
@@ -11,6 +11,7 @@ import styles from './Sidebar.module.css';
 const menuItems = [
   { path: '/dashboard', label: 'Dashboard', icon: BarChart3 },
   { path: '/vendas', label: 'Vendas / PDV', icon: ShoppingCart },
+  { path: '/vendas/lista', label: 'Histórico Vendas', icon: Receipt },
   { path: '/estoque', label: 'Estoque', icon: Package },
   { path: '/produtos', label: 'Produtos', icon: Wine },
   { path: '/compras', label: 'Compras', icon: ClipboardList },
@@ -59,7 +60,7 @@ export function Sidebar() {
       <nav className={styles.nav}>
         {menuItems.map((item) => {
           const Icon = item.icon;
-          const isActive = location.pathname.startsWith(item.path);
+          const isActive = location.pathname === item.path;
 
           return (
             <NavLink
