@@ -1,0 +1,27 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.default    { background: #ECEAE6; color: #44413C; }
+.success    { background: #E8F5EE; color: #2D8A4E; }
+.warning    { background: #FFF4E0; color: #C4841D; }
+.critical   { background: #FCEDEF; color: #C03744; }
+.info       { background: #EBF4FF; color: #2B6CB0; }
+.reserved   { background: #F0ECFA; color: #7B61C2; }
+.inactive   { background: #ECEAE6; color: #969085; }
+.expiring   { background: #FFF7ED; color: #D97706; }
+.primary    { background: #F5EFF0; color: #722F37; }
+.gold       { background: #FBF8F0; color: #8E7226; }
