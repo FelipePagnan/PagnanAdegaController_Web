@@ -1,4 +1,5 @@
 using ERP.Adega.Domain.Entities;
+using ERP.Adega.Domain.Enums;
 
 namespace ERP.Adega.Domain.Interfaces;
 
