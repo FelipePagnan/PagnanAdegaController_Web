@@ -46,7 +46,7 @@ O projeto foi construído com frontend em **React + TypeScript** e uma API em **
 O projeto segue uma arquitetura em camadas, com frontend separado da API:
 
 ```text
-AdegaControl_FINAL_COMPLETO
+AdegaControl_Web
 │
 ├── backend
 │   ├── src
