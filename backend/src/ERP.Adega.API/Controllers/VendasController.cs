@@ -4,6 +4,7 @@ using ERP.Adega.Application.DTOs;
 using ERP.Adega.Application.Queries.Vendas;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using ERP.Adega.API.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ERP.Adega.API.Controllers;
@@ -25,6 +26,7 @@ public class VendasController : ControllerBase
     /// Valida estoque, baixa FEFO, registra pagamentos.
     /// </summary>
     [HttpPost]
+    [PermissaoRequerida("vendas.criar")]
     public async Task<IActionResult> Criar(
         [FromBody] CriarVendaRequest request, CancellationToken ct)
     {
@@ -65,6 +67,7 @@ public class VendasController : ControllerBase
     /// Cancelar venda — estorna estoque se já finalizada.
     /// </summary>
     [HttpPost("{id:guid}/cancelar")]
+    [PermissaoRequerida("vendas.cancelar")]
     public async Task<IActionResult> Cancelar(
         Guid id, [FromBody] CancelarVendaRequest request, CancellationToken ct)
     {
@@ -73,4 +76,19 @@ public class VendasController : ControllerBase
         if (!result.Sucesso) return UnprocessableEntity(new { result.Codigo, result.Erro });
         return Ok();
     }
+
+    /// <summary>
+    /// Devolução parcial ou total — diferente de cancelamento.
+    /// Devolve itens ao estoque.
+    /// </summary>
+    [HttpPost("{id:guid}/devolver")]
+    public async Task<IActionResult> Devolver(
+        Guid id, [FromBody] DevolucaoRequest request, CancellationToken ct)
+    {
+        var req = new DevolucaoRequest(id, request.Motivo, request.Itens);
+        var result = await _mediator.Send(new CriarDevolucaoCommand(req, UsuarioId), ct);
+        if (!result.Sucesso) return UnprocessableEntity(new { result.Codigo, result.Erro });
+        return Ok(new { devolucaoId = result.Valor });
+    }
+
 }

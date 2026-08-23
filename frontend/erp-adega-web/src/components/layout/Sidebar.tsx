@@ -21,6 +21,8 @@ const menuItems = [
   { path: '/reservas', label: 'Reservas', icon: Calendar },
   { path: '/transferencias', label: 'Transferências', icon: Truck },
   { path: '/notificacoes', label: 'Notificações', icon: Bell, badge: 3 },
+  { path: '/inventario', label: 'Inventário', icon: ClipboardList },
+  { path: '/relatorios', label: 'Relatórios', icon: BarChart3 },
   { path: '/configuracoes', label: 'Configurações', icon: Settings },
 ];
 

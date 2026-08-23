@@ -33,10 +33,17 @@ builder.Services.AddScoped<IAuditoriaRepository, AuditoriaRepository>();
 builder.Services.AddScoped<IVendaRepository, VendaRepository>();
 builder.Services.AddScoped<IDevolucaoRepository, DevolucaoRepository>();
 builder.Services.AddScoped<IPedidoCompraRepository, PedidoCompraRepository>();
+builder.Services.AddScoped<ICaixaRepository, CaixaRepository>();
+builder.Services.AddScoped<IContaPagarRepository, ContaPagarRepository>();
+builder.Services.AddScoped<IContaReceberRepository, ContaReceberRepository>();
+builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
+builder.Services.AddScoped<ITransferenciaRepository, TransferenciaRepository>();
 
 // Services
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+
+builder.Services.AddHttpContextAccessor();
 
 // MediatR
 builder.Services.AddMediatR(cfg =>
@@ -63,6 +70,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAuthorization();
+
+// Auditoria pipeline
+builder.Services.AddScoped(typeof(MediatR.IPipelineBehavior<,>), typeof(ERP.Adega.Application.Common.AuditoriaBehavior<,>));
 builder.Services.AddControllers();
 
 // Swagger — sempre ativo (para facilitar desenvolvimento e testes)
