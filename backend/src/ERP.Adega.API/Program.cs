@@ -32,6 +32,7 @@ builder.Services.AddScoped<IPerfilRepository, PerfilRepository>();
 builder.Services.AddScoped<IAuditoriaRepository, AuditoriaRepository>();
 builder.Services.AddScoped<IVendaRepository, VendaRepository>();
 builder.Services.AddScoped<IDevolucaoRepository, DevolucaoRepository>();
+builder.Services.AddScoped<IPedidoCompraRepository, PedidoCompraRepository>();
 
 // Services
 builder.Services.AddScoped<IJwtService, JwtService>();

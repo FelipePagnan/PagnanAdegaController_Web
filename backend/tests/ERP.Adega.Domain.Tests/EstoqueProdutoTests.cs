@@ -2,6 +2,7 @@ using ERP.Adega.Domain.Entities;
 using ERP.Adega.Domain.Enums;
 using ERP.Adega.Domain.Exceptions;
 using FluentAssertions;
+using Xunit;
 
 namespace ERP.Adega.Domain.Tests;
 

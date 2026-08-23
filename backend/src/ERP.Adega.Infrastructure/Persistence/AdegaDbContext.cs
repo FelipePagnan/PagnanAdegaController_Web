@@ -32,6 +32,8 @@ public class AdegaDbContext : DbContext, IUnitOfWork
     public DbSet<PagamentoVenda> PagamentosVenda => Set<PagamentoVenda>();
     public DbSet<Devolucao> Devolucoes => Set<Devolucao>();
     public DbSet<ItemDevolucao> ItensDevolucao => Set<ItemDevolucao>();
+    public DbSet<PedidoCompra> PedidosCompra => Set<PedidoCompra>();
+    public DbSet<ItemCompra> ItensCompra => Set<ItemCompra>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

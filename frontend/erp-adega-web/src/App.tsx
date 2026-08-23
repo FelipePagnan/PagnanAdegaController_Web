@@ -8,13 +8,14 @@ import { ProdutosPage } from '@/pages/produtos/ProdutosPage';
 import { ProdutoFormPage } from '@/pages/produtos/ProdutoFormPage';
 import { EstoquePage } from '@/pages/estoque/EstoquePage';
 import { PDVPage } from '@/pages/vendas/PDVPage';
+import { VendasListPage } from '@/pages/vendas/VendasListPage';
+import { ComprasPage } from '@/pages/compras/ComprasPage';
+import { FornecedoresPage } from '@/pages/fornecedores/FornecedoresPage';
 
 function PlaceholderPage({ titulo }: { titulo: string }) {
   return (
     <div>
-      <h1 style={{ fontSize: 26, fontWeight: 800, color: '#1A1917', letterSpacing: '-0.02em' }}>
-        {titulo}
-      </h1>
+      <h1 style={{ fontSize: 26, fontWeight: 800, color: '#1A1917', letterSpacing: '-0.02em' }}>{titulo}</h1>
       <p style={{ color: '#747069', marginTop: 8 }}>Módulo em desenvolvimento — próxima fase.</p>
     </div>
   );
@@ -42,7 +43,9 @@ export default function App() {
           <Route path="/produtos/:id" element={<ProdutoFormPage />} />
           <Route path="/estoque" element={<EstoquePage />} />
           <Route path="/vendas" element={<PDVPage />} />
-          <Route path="/compras" element={<PlaceholderPage titulo="Compras" />} />
+          <Route path="/vendas/lista" element={<VendasListPage />} />
+          <Route path="/compras" element={<ComprasPage />} />
+          <Route path="/fornecedores" element={<FornecedoresPage />} />
           <Route path="/financeiro" element={<PlaceholderPage titulo="Financeiro" />} />
           <Route path="/clientes" element={<PlaceholderPage titulo="Clientes" />} />
           <Route path="/reservas" element={<PlaceholderPage titulo="Reservas" />} />
