@@ -5,6 +5,7 @@ using ERP.Adega.Application.Queries.Compras;
 using ERP.Adega.Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using ERP.Adega.API.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ERP.Adega.API.Controllers;
@@ -51,6 +52,7 @@ public class ComprasController : ControllerBase
     }
 
     [HttpPost("{id:guid}/aprovar")]
+    [PermissaoRequerida("compras.aprovar")]
     public async Task<IActionResult> Aprovar(Guid id, CancellationToken ct)
     {
         var result = await _mediator.Send(new AprovarPedidoCommand(id, UsuarioId), ct);
@@ -68,6 +70,7 @@ public class ComprasController : ControllerBase
     }
 
     [HttpPost("{id:guid}/receber")]
+    [PermissaoRequerida("compras.receber")]
     public async Task<IActionResult> Receber(
         Guid id, [FromBody] ReceberPedidoRequest request, CancellationToken ct)
     {

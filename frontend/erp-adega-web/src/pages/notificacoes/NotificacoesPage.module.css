@@ -1,0 +1,16 @@
+.page { max-width: 800px; }
+.header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.title { font-size: 26px; font-weight: 800; color: #1A1917; letter-spacing: -0.02em; margin: 0; }
+.subtitle { font-size: 14px; color: #747069; margin: 2px 0 0; }
+.loading { text-align: center; padding: 40px; color: #969085; }
+.emptyBox { text-align: center; padding: 60px 20px; color: #2D8A4E; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.emptyText { font-size: 16px; font-weight: 600; }
+.list { display: flex; flex-direction: column; gap: 8px; }
+.item { display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: #fff; border: 1px solid #ECEAE6; border-radius: 12px; box-shadow: 0 1px 2px rgba(26,25,23,0.06); }
+.iconBox { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.critical { background: #FCEDEF; color: #C03744; }
+.warning { background: #FFF4E0; color: #C4841D; }
+.info { background: #EBF4FF; color: #2B6CB0; }
+.itemContent { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.itemTitle { font-size: 14px; font-weight: 600; color: #1A1917; }
+.itemDetalhe { font-size: 13px; color: #747069; }

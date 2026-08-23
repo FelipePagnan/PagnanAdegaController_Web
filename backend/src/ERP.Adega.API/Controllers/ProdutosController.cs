@@ -3,6 +3,7 @@ using ERP.Adega.Application.DTOs;
 using ERP.Adega.Application.Queries.Produtos;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using ERP.Adega.API.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ERP.Adega.API.Controllers;
